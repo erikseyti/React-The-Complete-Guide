@@ -46,23 +46,30 @@ const ExpenseForm = () => {
   };
 
   const submitHandler = (event) => {
-      // prevent the submit of the form be trigger
-      event.preventDefault();
-      const expenseData = {
-        title: enteredTitle,
-        amount: enteredAmount,
-        date: new Date(enteredDate)
-      }
+    // prevent the submit of the form be trigger
+    event.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
 
-      console.log(expenseData);
-  }
+    console.log(expenseData);
+    setEnteredTitle("");
+    setEnteredAmount('');
+    setEnteredDate('');
+  };
 
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
 
         <div className="new-expense__control">
@@ -70,6 +77,7 @@ const ExpenseForm = () => {
           <input
             type="number"
             min="0.01"
+            value={enteredAmount}
             onChange={amountChangeHandler}
             steap="0.01"
           />
@@ -80,6 +88,7 @@ const ExpenseForm = () => {
           <input
             type="date"
             min="2019-01-01"
+            value={enteredDate}
             onChange={dateChangeHandler}
             max="2022-12-31"
           />
