@@ -77,10 +77,8 @@ const ExpenseForm = (props) => {
           <label>Amount</label>
           <input
             type="number"
-            min="0.01"
             value={enteredAmount}
             onChange={amountChangeHandler}
-            steap="0.01"
           />
         </div>
 
