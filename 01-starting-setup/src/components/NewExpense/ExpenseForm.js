@@ -2,38 +2,47 @@ import "./ExpenseForm.css";
 import { useState } from "react";
 
 const ExpenseForm = () => {
-  //    const [enteredTitle, setEnteredTitle] = useState('');
-  //    const [enteredAmount, setEnteredAmount] = useState('');
-  //    const [enteredDate, setEnteredDate] = useState('');
-  const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
-  });
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
+  //   const [userInput, setUserInput] = useState({
+  //     enteredTitle: "",
+  //     enteredAmount: "",
+  //     enteredDate: "",
+  //   });
 
   const titleChangeHandler = (event) => {
     console.log("title Changed!");
-    setUserInput({
-      ...userInput,
-      enteredTitle: event.target.value,
-    });
-    // setEnteredTitle(event.target.value);
+    setEnteredTitle(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   enteredTitle: event.target.value,
+    // });
+
+    // Use this approuch to handle an update of userState,
+    //Instead of the method above
+    // setUserInput((previousState) => {
+    //     return {
+    //         ...previousState,
+    //         enteredTitle: event.target.value
+    //     }
+    // })
   };
 
   const amountChangeHandler = (event) => {
-    // setEnteredAmount(event.target.value)
-    setUserInput({
-      ...userInput,
-      setEnteredAmount: event.target.value,
-    });
+    setEnteredAmount(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   setEnteredAmount: event.target.value,
+    // });
   };
 
   const dateChangeHandler = (event) => {
-    // setEnteredDate(event.target.value)
-    setUserInput({
-      ...userInput,
-      setEnteredDate: event.target.value,
-    });
+    setEnteredDate(event.target.value);
+    // setUserInput({
+    //   ...userInput,
+    //   setEnteredDate: event.target.value,
+    // });
   };
 
   return (
