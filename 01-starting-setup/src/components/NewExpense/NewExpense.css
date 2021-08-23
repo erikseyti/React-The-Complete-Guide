@@ -37,12 +37,3 @@
     background-color: #ddb3f8;
   }
 
-  .open-expense__menu {
-    display: flex;
-    justify-content: center;
-  }
-
-  .button-expense__group {
-    display: flex;
-    justify-content: flex-end;
-  }
