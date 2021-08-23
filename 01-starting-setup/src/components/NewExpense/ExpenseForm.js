@@ -2,6 +2,7 @@ import "./ExpenseForm.css";
 import { useState } from "react";
 
 const ExpenseForm = (props) => {
+  const [showForm, setShowForm] = useState(false)
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -53,13 +54,25 @@ const ExpenseForm = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-
-    // console.log(expenseData);
     props.onSaveExpenseData(expenseData)
     setEnteredTitle("");
     setEnteredAmount('');
     setEnteredDate('');
   };
+
+  function openForm () {
+    setShowForm(true)
+  }
+
+  function closeForm() {
+    setShowForm(false)
+  }
+
+  if(showForm === false) {
+    return (<div className="new-expense__actions open-expense__menu">
+    <button onClick={openForm} >Add new Expense</button>
+  </div>)
+  }
 
   return (
     <form onSubmit={submitHandler}>
@@ -93,9 +106,14 @@ const ExpenseForm = (props) => {
           />
         </div>
       </div>
+      <div className='button-expense__group'>
+        <div className='new-expense__actions'>
+          <button type='button' onClick={closeForm}>Cancel</button>
+        </div>
 
-      <div className="new-expense__actions">
-        <button type="submit">Add Expense</button>
+        <div className="new-expense__actions">
+          <button type="submit">Add Expense</button>
+        </div>
       </div>
     </form>
   );
